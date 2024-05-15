@@ -139,24 +139,6 @@
             cursor: pointer;
             z-index: 10;
         }
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-        }
-        .contact-form input, .contact-form textarea {
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .contact-form button {
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
         .dynamic-graph {
             position: fixed;
             top: 0;
@@ -181,7 +163,6 @@
         <a href="#projects" onclick="smoothScroll(event, 'projects')">Projects</a>
         <a href="#research" onclick="smoothScroll(event, 'research')">Research</a>
         <a href="Resume.pdf">CV</a>
-        <a href="#contact" onclick="smoothScroll(event, 'contact')">Contact</a>
     </nav>
     <main class="container">
         <section class="section" id="about">
@@ -206,20 +187,6 @@
         <section class="section" id="research">
             <h2>Research</h2>
             <p>Research publication coming soon.</p>
-        </section>
-        <section class="section" id="contact">
-            <h2>Contact</h2>
-            <ul class="contact-info">
-                <li><a href="mailto:smcsdp3006@iacs.res.in">Email</a></li>
-                <li><a href="https://www.linkedin.com/in/dhrubapatra">LinkedIn</a></li>
-                <li><a href="https://github.com/d1hr2uv">GitHub</a></li>
-            </ul>
-            <form class="contact-form" id="contact-form" action="https://formspree.io/f/{your-id}" method="POST">
-                <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" required>
-                <textarea name="message" placeholder="Your Message" aria-label="Your Message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
         </section>
     </main>
     <footer>
@@ -409,8 +376,7 @@
             const messages = {
                 about: "Let's learn more about Dhruba!",
                 projects: "Check out Dhruba's amazing projects!",
-                research: "Coming soon: Dhruba's research!",
-                contact: "Get in touch with Dhruba here!"
+                research: "Coming soon: Dhruba's research!"
             };
 
             speechBubble.innerText = messages[section];

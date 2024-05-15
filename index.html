@@ -64,10 +64,52 @@
             margin-left: auto;
             margin-right: auto;
         }
+        .profile-photo {
+            width: 200px;
+            height: auto;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
         footer {
             font-size: 14px;
             background-color: #222;
             color: white;
+        }
+        #kangaroo {
+            display: none;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 150px;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+        #speech-bubble {
+            display: none;
+            position: fixed;
+            bottom: 170px;
+            right: 170px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            width: 200px;
+            color: #333;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        nav a:hover {
+            color: #4CAF50;
         }
     </style>
 </head>
@@ -76,12 +118,19 @@
         <h1>Dhruba Patra</h1>
         <p>Second Year Master's Student in NLP</p>
     </header>
+    <nav>
+        <a href="#about" onclick="smoothScroll(event, 'about')">About</a>
+        <a href="#projects" onclick="smoothScroll(event, 'projects')">Projects</a>
+        <a href="#research" onclick="smoothScroll(event, 'research')">Research</a>
+        <a href="#contact" onclick="smoothScroll(event, 'contact')">Contact</a>
+    </nav>
     <main class="container">
-        <section class="section">
+        <section class="section" id="about">
             <h2>About Me</h2>
+            <img src="image.jpg" alt="Dhruba Patra" class="profile-photo">
             <p>I am Dhruba Patra, a second-year master's student specializing in Natural Language Processing. My academic journey has provided a deep understanding of advanced NLP techniques and data science, with a strong interest in applying these skills to solve complex challenges in innovative ways.</p>
         </section>
-        <section class="section">
+        <section class="section" id="projects">
             <h2>Projects</h2>
             <article>
                 <h3 class="project-title">Graph Neural Networks on Drug Repurposing</h3>
@@ -92,11 +141,11 @@
                 <p>Currently refining a cutting-edge project that aims to convert text directly into realistic sign language videos using advanced diffusion models. This project focuses on creating more inclusive communication tools by enhancing realism in text-to-video synthesis.</p>
             </article>
         </section>
-        <section class="section">
+        <section class="section" id="research">
             <h2>Research</h2>
             <p>Research publication coming soon.</p>
         </section>
-        <section class="section">
+        <section class="section" id="contact">
             <h2>Contact</h2>
             <ul class="contact-info">
                 <li>Email: <a href="mailto:smcsdp3006@iacs.res.in">smcsdp3006@iacs.res.in</a></li>
@@ -112,5 +161,41 @@
     <footer>
         <p>&copy; 2024 by Dhruba Patra. All rights reserved.</p>
     </footer>
+    <img src="kangaroo.jpg" id="kangaroo" alt="Kangaroo Mascot">
+    <div id="speech-bubble"></div>
+    <script>
+        function smoothScroll(event, targetId) {
+            event.preventDefault();
+            const target = document.getElementById(targetId);
+            window.scrollTo({
+                top: target.offsetTop,
+                behavior: 'smooth'
+            });
+            showKangaroo(targetId);
+        }
+
+        function showKangaroo(section) {
+            const kangaroo = document.getElementById('kangaroo');
+            const speechBubble = document.getElementById('speech-bubble');
+            const messages = {
+                about: "Let's learn more about Dhruba!",
+                projects: "Check out Dhruba's amazing projects!",
+                research: "Coming soon: Dhruba's research!",
+                contact: "Get in touch with Dhruba here!"
+            };
+
+            speechBubble.innerText = messages[section];
+            kangaroo.style.display = 'block';
+            speechBubble.style.display = 'block';
+            kangaroo.style.transform = 'scale(1.5)';
+            setTimeout(() => {
+                kangaroo.style.transform = 'scale(1)';
+            }, 500);
+            setTimeout(() => {
+                kangaroo.style.display = 'none';
+                speechBubble.style.display = 'none';
+            }, 3000);
+        }
+    </script>
 </body>
 </html>

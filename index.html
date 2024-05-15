@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhruba Patra - NLP Master's Student</title>
+    <title>Dhruba Patra - Computer Science Master's Student</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#1e0030">
-    <meta name="description" content="Dhruba Patra, a second-year master's student specializing in Natural Language Processing. Explore my projects, research, and get in touch.">
-    <meta property="og:title" content="Dhruba Patra - NLP Master's Student">
-    <meta property="og:description" content="Dhruba Patra, a second-year master's student specializing in Natural Language Processing. Explore my projects, research, and get in touch.">
+    <meta name="description" content="Dhruba Patra, a second-year master's student specializing in Computer Science. Explore my projects, research, and get in touch.">
+    <meta property="og:title" content="Dhruba Patra - Computer Science Master's Student">
+    <meta property="og:description" content="Dhruba Patra, a second-year master's student specializing in Computer Science. Explore my projects, research, and get in touch.">
     <meta property="og:image" content="image.png">
     <meta property="og:url" content="https://dhrubapatra.com">
     <meta name="twitter:card" content="summary_large_image">
@@ -31,6 +31,8 @@
             color: #ccc;
             text-align: center;
             transition: background-color 0.3s, color 0.3s;
+            position: relative;
+            overflow: hidden;
         }
         header, footer {
             background-color: #1e0030;
@@ -38,6 +40,7 @@
             padding: 20px 0;
             font-size: 24px;
             position: relative;
+            z-index: 10;
         }
         .container {
             padding: 20px;
@@ -46,6 +49,8 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
+            position: relative;
+            z-index: 10;
         }
         @media (min-width: 768px) {
             .container {
@@ -149,6 +154,7 @@
             padding: 10px;
             border-radius: 5px;
             cursor: pointer;
+            z-index: 10;
         }
         @media (max-width: 768px) {
             .profile-photo {
@@ -178,12 +184,22 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .dynamic-graph {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
+    <div class="dynamic-graph" id="dynamic-graph"></div>
     <header>
         <h1>Dhruba Patra</h1>
-        <p>Second Year Master's Student in NLP</p>
+        <p>Second Year Master's Student in Computer Science</p>
         <img src="image.png" alt="Dhruba Patra" class="profile-photo" loading="lazy">
         <button id="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </header>
@@ -196,7 +212,7 @@
     <main class="container">
         <section class="section" id="about">
             <h2>About Me</h2>
-            <p>I am Dhruba Patra, a second-year master's student specializing in Natural Language Processing. My academic journey has provided a deep understanding of advanced NLP techniques and data science, with a strong interest in applying these skills to solve complex challenges in innovative ways.</p>
+            <p>I am Dhruba Patra, a second-year master's student specializing in Computer Science. My academic journey has provided a deep understanding of advanced NLP techniques and data science, with a strong interest in applying these skills to solve complex challenges in innovative ways.</p>
         </section>
         <section class="section" id="projects">
             <h2>Projects</h2>
@@ -207,6 +223,10 @@
             <article>
                 <h3 class="project-title">Text to Video for Sign Language</h3>
                 <p>Currently refining a cutting-edge project that aims to convert text directly into realistic sign language videos using advanced diffusion models. This project focuses on creating more inclusive communication tools by enhancing realism in text-to-video synthesis.</p>
+            </article>
+            <article>
+                <h3 class="project-title">Gemini API for K12 Education</h3>
+                <p>Innovated an educational platform leveraging the Gemini API to create adaptive learning modules for K12 students. The system utilizes NLP to analyze students' responses, offering personalized feedback and generating additional exercises tailored to individual learning needs. The project aims to enhance the educational experience by making learning interactive and personalized. View the code on <a href="https://github.com/MLlab4CS/GeminiK12">GitHub</a>.</p>
             </article>
         </section>
         <section class="section" id="research">
@@ -244,6 +264,87 @@
             const scroll = new SmoothScroll('nav a[href*="#"]', {
                 speed: 800
             });
+
+            const dynamicGraph = document.getElementById('dynamic-graph');
+            const canvas = document.createElement('canvas');
+            dynamicGraph.appendChild(canvas);
+            const ctx = canvas.getContext('2d');
+            let width, height;
+
+            function resize() {
+                width = dynamicGraph.offsetWidth;
+                height = dynamicGraph.offsetHeight;
+                canvas.width = width;
+                canvas.height = height;
+            }
+
+            window.addEventListener('resize', resize);
+            resize();
+
+            const nodes = [];
+            const edges = [];
+            const numNodes = 50;
+            const maxDist = 150;
+
+            for (let i = 0; i < numNodes; i++) {
+                nodes.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 2,
+                    vy: (Math.random() - 0.5) * 2
+                });
+            }
+
+            function distance(node1, node2) {
+                return Math.sqrt((node1.x - node2.x) ** 2 + (node1.y - node2.y) ** 2);
+            }
+
+            function update() {
+                edges.length = 0;
+
+                for (let i = 0; i < nodes.length; i++) {
+                    const node1 = nodes[i];
+                    node1.x += node1.vx;
+                    node1.y += node1.vy;
+
+                    if (node1.x < 0 || node1.x > width) node1.vx *= -1;
+                    if (node1.y < 0 || node1.y > height) node1.vy *= -1;
+
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const node2 = nodes[j];
+                        if (distance(node1, node2) < maxDist) {
+                            edges.push({ node1, node2 });
+                        }
+                    }
+                }
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+
+                ctx.fillStyle = '#FFF';
+                nodes.forEach(node => {
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, 3, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+
+                ctx.strokeStyle = '#FFF';
+                edges.forEach(edge => {
+                    ctx.beginPath();
+                    ctx.moveTo(edge.node1.x, edge.node1.y);
+                    ctx.lineTo(edge.node2.x, edge.node2.y);
+                    ctx.stroke();
+                });
+            }
+
+            function animate() {
+                update();
+                draw();
+                requestAnimationFrame(animate);
+            }
+
+            animate();
         });
 
         function smoothScroll(event, targetId) {

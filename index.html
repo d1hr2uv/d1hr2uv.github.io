@@ -13,8 +13,9 @@
     <meta property="og:image" content="image.png">
     <meta property="og:url" content="https://dhrubapatra.com">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="robots" content="index, follow">
     <style>
+        /* Critical CSS for fast initial render */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -152,6 +153,24 @@
                 grid-template-columns: 1fr;
             }
         }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form input, .contact-form textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -194,6 +213,12 @@
                 <li>LinkedIn: <a href="https://www.linkedin.com/in/dhrubapatra">Visit LinkedIn Profile</a></li>
                 <li>GitHub: <a href="https://github.com/d1hr2uv">Visit GitHub Profile</a></li>
             </ul>
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/{your-id}" method="POST">
+                <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" required>
+                <textarea name="message" placeholder="Your Message" aria-label="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
         </section>
         <section class="section">
             <h2>Resume</h2>
@@ -257,6 +282,14 @@
                 body.style.backgroundColor = '#2c003e';
                 body.style.color = '#ccc';
             }
+        }
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                console.log('Service Worker registered with scope:', registration.scope);
+            }).catch(function(error) {
+                console.log('Service Worker registration failed:', error);
+            });
         }
     </script>
 </body>

@@ -14,6 +14,13 @@
     <meta property="og:url" content="https://dhrubapatra.com">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="robots" content="index, follow">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXX-Y');
+    </script>
     <style>
         /* Critical CSS for fast initial render */
         body {
@@ -36,7 +43,14 @@
             padding: 20px;
             max-width: 1200px;
             margin: 20px auto;
-            text-align: left;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         .section {
             margin-bottom: 30px;
@@ -143,7 +157,7 @@
                 display: block;
             }
             .container {
-                width: 95%;
+                grid-template-columns: 1fr;
             }
         }
         .contact-form {

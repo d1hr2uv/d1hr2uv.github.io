@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhruba</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    <!-- SEO -->
+    <meta name="description" content="Dhruba — working on AI agents and developer tools. Currently at Voiden, previously at Cua (YC X25).">
+    <meta name="author" content="Dhruba">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://d1hr2uv.github.io/">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dhruba">
+    <meta property="og:description" content="AI is cool, I guess. Working on AI agents and developer tools.">
+    <meta property="og:url" content="https://d1hr2uv.github.io/">
+    <meta property="og:site_name" content="Dhruba">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@dhruv2038">
+    <meta name="twitter:title" content="Dhruba">
+    <meta name="twitter:description" content="AI is cool, I guess. Working on AI agents and developer tools.">
+    
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="Dhruba" href="https://d1hr2uv.github.io/feed.xml">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dhruba",
+      "url": "https://d1hr2uv.github.io",
+      "sameAs": [
+        "https://x.com/dhruv2038"
+      ],
+      "jobTitle": "Product Evangelist",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Voiden",
+        "url": "https://voiden.md"
+      },
+      "alumniOf": {
+        "@type": "Organization",
+        "name": "Indian Association for the Cultivation of Science"
+      }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf9f7;
+            --text: #363636;
+            --text-secondary: #5c5c5c;
+            --text-muted: #9a9a9a;
+            --accent: #a86e5a;
+            --border: #e8e6e2;
+            --surface: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg: #1a1a19;
+            --text: #e0dfdc;
+            --text-secondary: #a8a7a4;
+            --text-muted: #6e6e6c;
+            --accent: #c49a88;
+            --border: #2c2c2a;
+            --surface: #222221;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 17px;
+        }
+
+        body {
+            font-family: 'Newsreader', Georgia, serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            padding: 4rem 2rem 6rem;
+            max-width: 600px;
+            margin: 0 auto;
+            transition: background 0.4s ease, color 0.4s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+            opacity: 1;
+        }
+
+        .nav-links a:first-child {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            cursor: pointer;
+            padding: 0.4rem 0;
+            transition: color 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            color: var(--text);
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+        }
+
+        .intro {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Items */
+        .item {
+            margin-bottom: 2rem;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .item h3 a {
+            color: var(--text);
+        }
+
+        .item h3 a:hover {
+            color: var(--accent);
+            opacity: 1;
+        }
+
+        .item .meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
+
+        .item .meta a {
+            color: var(--text-muted);
+        }
+
+        .item .meta a:hover {
+            color: var(--accent);
+            opacity: 1;
+        }
+
+        .item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Links section */
+        .elsewhere {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .elsewhere a {
+            color: var(--text-secondary);
+            margin-right: 2rem;
+        }
+
+        .elsewhere a:hover {
+            color: var(--accent);
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .visitor-count {
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Dhruba</a>
+            <a href="blog.html">Writing</a>
+            <a href="mailto:hello@example.com">Contact</a>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()">Dark</button>
+    </nav>
+
+    <header>
+        <h1>Dhruba</h1>
+        <p class="intro">AI is cool, I guess.</p>
+    </header>
+
+    <section>
+        <div class="section-label">Now</div>
+        
+        <div class="item">
+            <h3><a href="https://voiden.md" target="_blank" rel="noopener">Voiden</a></h3>
+            <p class="meta">By ApyHub · <a href="https://github.com/VoidenHQ/feedback" target="_blank" rel="noopener">Feedback</a></p>
+            <p>A Git-native API client. Collections are Markdown files. Offline-first, no account required.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-label">Before</div>
+        
+        <div class="item">
+            <h3><a href="https://cua.so" target="_blank" rel="noopener">Cua</a></h3>
+            <p class="meta">YC X25 · Apr – Dec 2025</p>
+            <p>AI agents that interact with computers through the screen—clicking, typing, navigating. I led community and content, helping reach 2 million+ impressions on Reddit.</p>
+        </div>
+
+        <div class="item">
+            <h3>Research</h3>
+            <p class="meta">Indian Association for the Cultivation of Science</p>
+            <p>Master's in Computer Science. Worked on fact verification and interpretability.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-label">Elsewhere</div>
+        <div class="elsewhere">
+            <a href="https://x.com/dhruv2038" target="_blank" rel="noopener">X ↗</a>
+        </div>
+    </section>
+
+    <footer>
+        <span>India</span>
+        <span class="visitor-count"><span id="visitor-count">—</span> visitors</span>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const btn = document.querySelector('.theme-toggle');
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                btn.textContent = 'Dark';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                btn.textContent = 'Light';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.querySelector('.theme-toggle').textContent = 'Light';
+            }
+        })();
+
+        fetch('https://api.countapi.xyz/hit/dhruba-site/visits')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('visitor-count').textContent = data.value.toLocaleString();
+            })
+            .catch(() => {
+                document.getElementById('visitor-count').textContent = '—';
+            });
+    </script>
+</body>
+</html>

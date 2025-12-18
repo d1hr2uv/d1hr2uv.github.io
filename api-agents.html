@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If APIs aren't designed for agents, they might get bypassed — Dhruba</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    <!-- SEO -->
+    <meta name="description" content="If your API is under-documented or inconsistent, AI agents won't wait around. They'll bypass it entirely and use computer-use instead.">
+    <meta name="author" content="Dhruba">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://d1hr2uv.github.io/api-agents.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="If APIs aren't designed for agents, they might get bypassed">
+    <meta property="og:description" content="If your API is under-documented or inconsistent, AI agents won't wait around. They'll bypass it entirely and use computer-use instead.">
+    <meta property="og:url" content="https://d1hr2uv.github.io/api-agents.html">
+    <meta property="og:site_name" content="Dhruba">
+    <meta property="article:author" content="Dhruba">
+    <meta property="article:published_time" content="2025-12-01">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@dhruv2038">
+    <meta name="twitter:title" content="If APIs aren't designed for agents, they might get bypassed">
+    <meta name="twitter:description" content="If your API is under-documented or inconsistent, AI agents won't wait around. They'll bypass it entirely and use computer-use instead.">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "If APIs aren't designed for agents, they might get bypassed",
+      "description": "If your API is under-documented or inconsistent, AI agents won't wait around. They'll bypass it entirely and use computer-use instead.",
+      "author": {
+        "@type": "Person",
+        "name": "Dhruba",
+        "url": "https://d1hr2uv.github.io"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Dhruba"
+      },
+      "datePublished": "2025-12-01",
+      "dateModified": "2025-12-18",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://d1hr2uv.github.io/api-agents.html"
+      }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf9f7;
+            --text: #363636;
+            --text-secondary: #5c5c5c;
+            --text-muted: #9a9a9a;
+            --accent: #a86e5a;
+            --border: #e8e6e2;
+            --surface: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg: #1a1a19;
+            --text: #e0dfdc;
+            --text-secondary: #a8a7a4;
+            --text-muted: #6e6e6c;
+            --accent: #c49a88;
+            --border: #2c2c2a;
+            --surface: #222221;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 17px;
+        }
+
+        body {
+            font-family: 'Newsreader', Georgia, serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            padding: 4rem 2rem 6rem;
+            max-width: 600px;
+            margin: 0 auto;
+            transition: background 0.4s ease, color 0.4s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+            opacity: 1;
+        }
+
+        .nav-links a:first-child {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            cursor: pointer;
+            padding: 0.4rem 0;
+            transition: color 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            color: var(--text);
+        }
+
+        /* Article Header */
+        .article-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .article-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+        }
+
+        /* Article Content */
+        .article-content {
+            color: var(--text-secondary);
+        }
+
+        .article-content p {
+            margin-bottom: 1.6rem;
+        }
+
+        .article-content strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        .separator {
+            text-align: center;
+            margin: 2.5rem 0;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            letter-spacing: 0.5em;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+        }
+
+        footer a {
+            color: var(--text-muted);
+        }
+
+        footer a:hover {
+            color: var(--accent);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Dhruba</a>
+            <a href="blog.html">Writing</a>
+            <a href="mailto:hello@example.com">Contact</a>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()">Dark</button>
+    </nav>
+
+    <article>
+        <header class="article-header">
+            <div class="article-date">December 2025</div>
+            <h1>If APIs aren't designed for agents, they might get bypassed</h1>
+        </header>
+
+        <div class="article-content">
+            <p>Gartner seems to be pointing at a future where teams use agents with computer-use to talk to apps directly when APIs are too painful, incomplete, or unreliable.</p>
+
+            <p>That's… not great.</p>
+
+            <p>Computer-use automation is slow, brittle, expensive to maintain, and usually a sign that something went wrong at the API layer.</p>
+
+            <p><strong>2026 is going to be the year that teams realize their APIs aren't "agent-ready."</strong></p>
+
+            <div class="separator">· · ·</div>
+
+            <p><strong>What does "agent-ready" even mean?</strong></p>
+
+            <p>For an AI agent, an API needs clear, machine-readable contracts, up-to-date schemas, predictable behavior, tests that actually reflect reality, and docs that aren't lying.</p>
+
+            <p>Most APIs fail here not because engineers don't care, but because specs, tests, and docs live in different tools and drift apart over time.</p>
+
+            <div class="separator">· · ·</div>
+
+            <p><strong>Where Voiden fits into this</strong></p>
+
+            <p><a href="https://voiden.md" target="_blank" rel="noopener">Voiden</a> is an offline, file-centric API client that keeps specs, tests, and docs in one Markdown file, versioned in Git.</p>
+
+            <p>Why that matters for agents: the spec an agent reads is the same one used for validation. Tests don't drift from docs because they're the same artifact. Changes are reviewable in PRs. No cloud-only API definitions hidden behind tools.</p>
+
+            <p>You can define an API once, validate responses against OpenAPI schemas, and document behavior right next to executable requests.</p>
+
+            <p>If an agent is going to rely on your API, this kind of single source of truth becomes critical.</p>
+
+            <div class="separator">· · ·</div>
+
+            <p><strong>Otherwise… agents might route around you</strong></p>
+
+            <p>Red flags for an API: under-documented, inconsistent, or locked in proprietary tools.</p>
+
+            <p>Agents will likely bypass these kind of APIs and fall back to computer-use automation.</p>
+
+            <p>That's slower, costlier, and harder to scale, but agents don't care. They'll take whatever path works.</p>
+
+            <div class="separator">· · ·</div>
+
+            <p><strong>Curious how others are thinking about this</strong></p>
+
+            <p>Are you already thinking about "agent-first" APIs? Testing APIs as machine contracts, not just human docs? Keeping specs, tests, and docs actually in sync?</p>
+
+            <p>Would love to hear how people are preparing for this shift.</p>
+
+            <p><em>(For context: <a href="https://voiden.md" target="_blank" rel="noopener">Voiden</a> is an open, offline-first API workspace experimenting with this direction. Not saying it's the answer — but it's clearly aimed at the problem.)</em></p>
+        </div>
+    </article>
+
+    <footer>
+        <a href="blog.html">← Back to writing</a>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const btn = document.querySelector('.theme-toggle');
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                btn.textContent = 'Dark';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                btn.textContent = 'Light';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.querySelector('.theme-toggle').textContent = 'Light';
+            }
+        })();
+    </script>
+</body>
+</html>

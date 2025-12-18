@@ -1,0 +1,28 @@
+# Dhruba
+
+> AI is cool, I guess.
+
+Personal website of Dhruba — working on AI agents and developer tools.
+
+## Current Work
+
+- [Voiden](https://voiden.md) — A Git-native API client. Collections are Markdown files. Offline-first, no account required. By ApyHub.
+
+## Previous Work
+
+- [Cua](https://cua.so) — YC X25. AI agents that interact with computers through the screen—clicking, typing, navigating. Led community and content, helping reach 2 million+ impressions on Reddit. (Apr – Dec 2025)
+
+- Research at Indian Association for the Cultivation of Science — Master's in Computer Science. Worked on fact verification and interpretability.
+
+## Writing
+
+- [If APIs aren't designed for agents, they might get bypassed](https://d1hr2uv.github.io/api-agents.html) — On why 2026 will be the year teams realize their APIs aren't "agent-ready."
+
+## Links
+
+- X: https://x.com/dhruv2038
+- Website: https://d1hr2uv.github.io
+
+## Location
+
+India
